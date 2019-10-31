@@ -21,6 +21,11 @@ if(WIN32)
     ${NEO_SOURCE_DIR}/offline_compiler/utilities/windows/seh_exception.h
     ${NEO_SOURCE_DIR}/runtime/os_interface/windows/os_library.cpp
   )
+elseif(ANDROID)
+  list(APPEND CLOC_SEGFAULT_TEST_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/android/safety_guard_caller_android.cpp
+    ${NEO_SOURCE_DIR}/runtime/os_interface/android/os_library.cpp
+  )
 else()
   list(APPEND CLOC_SEGFAULT_TEST_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/linux/safety_guard_caller_linux.cpp
